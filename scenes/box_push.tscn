@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtdwrt8pispu"]
+
+[ext_resource type="Texture2D" uid="uid://ue4get1i7k7n" path="res://assets/box kecil.png" id="1_fogmc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjcok"]
+size = Vector2(85.25, 82.5)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 1000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.187505, -0.687499)
+scale = Vector2(0.237948, 0.309944)
+texture = ExtResource("1_fogmc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.375, -2.25)
+shape = SubResource("RectangleShape2D_kjcok")

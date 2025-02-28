@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhb68ld0my7ty"]
+[gd_scene load_steps=16 format=3 uid="uid://dhb68ld0my7ty"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_mr2ub"]
 [ext_resource type="Texture2D" uid="uid://bedtb2et053gn" path="res://assets/Ucing_walk/walk_0003.png" id="2_6nneq"]
+[ext_resource type="Texture2D" uid="uid://ttki0cgd5aar" path="res://assets/crouch.png" id="2_7136x"]
 [ext_resource type="Texture2D" uid="uid://csc4mlb80wfg5" path="res://assets/Ucing_walk/walk_0001.png" id="4_i2fmb"]
 [ext_resource type="Texture2D" uid="uid://6kcwap0wy0oo" path="res://assets/Ucing_walk/walk_0002.png" id="5_370ic"]
 [ext_resource type="Texture2D" uid="uid://ksw6phwcyy8v" path="res://assets/Ucing_walk/walk_0004.png" id="6_pu0ln"]
@@ -15,6 +16,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v4d0v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7136x")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6nneq")
@@ -66,19 +75,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2u7p"]
-size = Vector2(85, 134)
+size = Vector2(89.25, 113)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_mr2ub")
 walk_speed = 100
+crouch_speed = 50
 gravity = 1000.0
+push_force = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+position = Vector2(3, -1)
+scale = Vector2(0.17, 0.172)
 sprite_frames = SubResource("SpriteFrames_v4d0v")
-animation = &"walk"
-frame_progress = 0.686383
+animation = &"crouch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 7)
+position = Vector2(0.375, 5.5)
 shape = SubResource("RectangleShape2D_o2u7p")
